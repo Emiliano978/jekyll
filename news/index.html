@@ -13,7 +13,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>News | Jekyll • Simple, blog-aware, static sites</title>
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="News" />
 <meta name="author" content="all" />
 <meta property="og:locale" content="en_US" />
@@ -63,7 +63,7 @@
 </div>
     <div class="meta hide-on-mobiles">
       <ul>
-        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.3.1">v4.3.1</a></li>
+        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.3.2">v4.3.2</a></li>
         <li><a href="https://github.com/jekyll/jekyll">GitHub</a></li>
       </ul>
     </div>
@@ -85,6 +85,8 @@
     <option value="">Navigate the blog…</option>
     <option value="/news/">Home</option>
     <optgroup label="posts">
+      <option value="/news/2023/01/20/jekyll-4-3-2-released/">Jekyll 4.3.2 Released</option>
+      <option value="/news/2022/12/21/jekyll-sass-converter-3.0-released/">Jekyll Sass Converter 3.0 Released</option>
       <option value="/news/2022/10/26/jekyll-4-3-1-released/">Jekyll 4.3.1 Released</option>
       <option value="/news/2022/10/20/jekyll-4-3-0-released/">Jekyll 4.3.0 Released</option>
       <option value="/news/2022/03/27/jekyll-3-9-2-released/">Jekyll 3.9.2 Released</option>
@@ -183,32 +185,75 @@
 </div>
 <div class="unit four-fifths"><article>
   <h2>
-    <a href="/news/2022/10/26/jekyll-4-3-1-released/">Jekyll 4.3.1 Released</a>
+    <a href="/news/2023/01/20/jekyll-4-3-2-released/">Jekyll 4.3.2 Released</a>
   </h2>
   <span class="post-category">
     <span class="label">release</span>
   </span>
   <div class="post-meta">
-    <span class="post-date">26 Oct 2022</span>
+    <span class="post-date">20 Jan 2023</span>
     <a href="https://github.com/ashmaroli" class="post-author">
       <img class="avatar avatar-small" alt="ashmaroli" width="24" height="24" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/ashmaroli?v=3&s=24" srcset="https://avatars0.githubusercontent.com/ashmaroli?v=3&s=24 1x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=48 2x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=72 3x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=96 4x" /><span class="author-name">ashmaroli</span>
     </a>
   </div>
   <div class="post-content"><p>Hello Jekyllers!</p>
 
-<p>We’re shipping <code class="language-plaintext highlighter-rouge">v4.3.1</code> containing fixes for two issues with v4.3.0:</p>
+<p>This is a small release containing fixes for some issues that came to our attention after the
+release of v4.3.1:</p>
 <ul>
-  <li>Jekyll now respects user-defined <code class="language-plaintext highlighter-rouge">name</code> attribute for collection documents when accessed in Liquid templates.</li>
-  <li>Revert the changes made to trigger incremental rebuilds when data files are changed.</li>
+  <li>Our <code class="language-plaintext highlighter-rouge">link</code> tag had a significant performance regression with the release of v4.3.0 solely due
+to a change related to <code class="language-plaintext highlighter-rouge">Jekyll::Site#each_site_file</code>. The new patch restores previous performance
+while maintaining the enhancements introduced in v4.3.0.</li>
+  <li>The tables printed out on running a build with the <code class="language-plaintext highlighter-rouge">--profile</code> did not stop including the
+misleading <code class="language-plaintext highlighter-rouge">TOTALS</code> row as advertised in the release-notes for v4.3.0. The row has been removed
+completely now.</li>
+  <li><code class="language-plaintext highlighter-rouge">jekyll-sass-converter-3.0.0</code> that shipped in the interim was not happy with our blank-site
+scaffolding (from running <code class="language-plaintext highlighter-rouge">jekyll new &lt;path&gt; --blank</code>) having a <code class="language-plaintext highlighter-rouge">main.scss</code> stylesheet template
+<em>import</em> a Sass partial <em>also named</em> <code class="language-plaintext highlighter-rouge">main.scss</code>. So the partial has been renamed to <code class="language-plaintext highlighter-rouge">base.scss</code>.</li>
 </ul>
 
-<p>Thanks to the users who took the time to report the issues to us.
-Happy Jekyllin’</p>
+<p>That’s about it for this release. Depending on whether you use the features patched in this release,
+you may either wait for v4.4.0 (releasing in the near future) to update your Gemfile or, download
+the latest release right away! :)</p>
 
-<p>P.S. Development towards v5 has taken a back seat as of now. I plan on releasing a v4.4.0 instead.
-That said, please feel free to comment on the <a href="https://github.com/jekyll/jekyll/issues/9156">tentative roadmap to v5</a>.</p>
-
+<p>Happy Jekyllin’!!</p>
 </div>
+</article>
+<article>
+  <div class="cell-left">
+    <span class="post-category">
+      <span class="label">community</span>
+    </span>
+  </div>
+  <div class="cell-right">
+    <div class="post-meta">
+      <h2 class="post-title">
+        <a href="/news/2022/12/21/jekyll-sass-converter-3.0-released/">Jekyll Sass Converter 3.0 Released</a>
+      </h2>
+      <span class="post-date">21 Dec 2022</span>
+      <a href="https://github.com/ashmaroli" class="post-author">
+        <img class="avatar avatar-small" alt="ashmaroli" width="24" height="24" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/ashmaroli?v=3&s=24" srcset="https://avatars0.githubusercontent.com/ashmaroli?v=3&s=24 1x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=48 2x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=72 3x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=96 4x" /><span class="author-name">ashmaroli</span>
+      </a>
+    </div>
+  </div>
+</article>
+<article>
+  <div class="cell-left">
+    <span class="post-category">
+      <span class="label">release</span>
+    </span>
+  </div>
+  <div class="cell-right">
+    <div class="post-meta">
+      <h2 class="post-title">
+        <a href="/news/2022/10/26/jekyll-4-3-1-released/">Jekyll 4.3.1 Released</a>
+      </h2>
+      <span class="post-date">26 Oct 2022</span>
+      <a href="https://github.com/ashmaroli" class="post-author">
+        <img class="avatar avatar-small" alt="ashmaroli" width="24" height="24" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/ashmaroli?v=3&s=24" srcset="https://avatars0.githubusercontent.com/ashmaroli?v=3&s=24 1x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=48 2x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=72 3x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=96 4x" /><span class="author-name">ashmaroli</span>
+      </a>
+    </div>
+  </div>
 </article>
 <article>
   <div class="cell-left">
@@ -1880,6 +1925,9 @@ That said, please feel free to comment on the <a href="https://github.com/jekyll
     <h4>Recent Releases</h4>
     <ul>
       <li >
+        <a href="/news/2023/01/20/jekyll-4-3-2-released/">Version 4.3.2</a>
+      </li>
+      <li >
         <a href="/news/2022/10/26/jekyll-4-3-1-released/">Version 4.3.1</a>
       </li>
       <li >
@@ -1891,9 +1939,6 @@ That said, please feel free to comment on the <a href="https://github.com/jekyll
       <li >
         <a href="/news/2022/03/03/jekyll-4-2-2-released/">Version 4.2.2</a>
       </li>
-      <li >
-        <a href="/news/2021/09/27/jekyll-4-2-1-released/">Version 4.2.1</a>
-      </li>
       <li>
         <a href="/docs/history/">History »</a>
       </li>
@@ -1901,6 +1946,9 @@ That said, please feel free to comment on the <a href="https://github.com/jekyll
     <h4>Other News</h4>
     <ul>
     <li>
+        <a href="/news/2022/12/21/jekyll-sass-converter-3.0-released/">Jekyll Sass Converter 3.0 Released</a>
+      </li>
+      <li>
         <a href="/news/2021/09/14/goodbye-dear-frank/">Goodbye, Dear Frank.</a>
       </li>
       <li>
@@ -1946,7 +1994,7 @@ That said, please feel free to comment on the <a href="https://github.com/jekyll
   <div class="grid">
     <div class="unit one-third center-on-mobiles">
       <p>Jekyll is lovingly maintained by the <a href="/team/">core team</a> of volunteers. </p>
-      <p>The contents of this website are <br />&copy;&nbsp;2022 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
+      <p>The contents of this website are <br />&copy;&nbsp;2023 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
     </div>
     <div class="unit two-thirds align-right center-on-mobiles">
       <p>
