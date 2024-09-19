@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,7 +13,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Tabulate CSV Data | Jekyll • Simple, blog-aware, static sites</title>
-<meta name="generator" content="Jekyll v4.3.2" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Tabulate CSV Data" />
 <meta name="author" content="MichaelCurrin" />
 <meta property="og:locale" content="en_US" />
@@ -60,11 +60,10 @@
   </ul>
 </nav>
     <div class="search hide-on-mobiles">
-      <input type="text" id="docsearch-input" placeholder="Search the docs…">
-</div>
+      <input type="text" id="docsearch-input" placeholder="Search the docs…" aria-label="Search"></div>
     <div class="meta hide-on-mobiles">
       <ul>
-        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.3.2">v4.3.2</a></li>
+        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.3.4">v4.3.4</a></li>
         <li><a href="https://github.com/jekyll/jekyll">GitHub</a></li>
       </ul>
     </div>
@@ -75,33 +74,33 @@
     <li><a href="/docs/">Docs</a></li>
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/news/">News</a></li>
-    <li><a href="https://github.com/jekyll/jekyll">GitHub</a></li>
-</ul>
-</nav>
+    <li><a href="https://github.com/jekyll/jekyll" target="_blank" rel="noopener">GitHub</a></li>
+</ul></nav>
 </header>
 <section class="docs">
   <div class="grid"><div class="docs-nav-mobile unit whole show-on-mobiles">
-  <select onchange="if (this.value) window.location.href=this.value">
+  <select id="tutorial-nav" onchange="navigateToUrl(this)" aria-label="Select a tutorial">
     <option value="">Navigate the tutorials…</option>
     <optgroup label="Tutorials">
-      <option value="/tutorials/home/">Tutorials</option>
-      <option value="/tutorials/video-walkthroughs/">Video Walkthroughs</option>
-      <option value="/tutorials/navigation/">Navigation</option>
-      <option value="/tutorials/orderofinterpretation/">Order of interpretation</option>
-      <option value="/tutorials/custom-404-page/">Custom 404 Page</option>
-      <option value="/tutorials/convert-site-to-jekyll/">Convert an HTML site to Jekyll</option>
-      <option value="/tutorials/using-jekyll-with-bundler/">Using Jekyll with Bundler</option>
-      <option value="/tutorials/csv-to-table/">Tabulate CSV Data</option>
-      </optgroup>
+        <option value="/tutorials/home/">Tutorials</option>
+        <option value="/tutorials/video-walkthroughs/">Video Walkthroughs</option>
+        <option value="/tutorials/navigation/">Navigation</option>
+        <option value="/tutorials/orderofinterpretation/">Order of interpretation</option>
+        <option value="/tutorials/custom-404-page/">Custom 404 Page</option>
+        <option value="/tutorials/convert-site-to-jekyll/">Convert an HTML site to Jekyll</option>
+        <option value="/tutorials/using-jekyll-with-bundler/">Using Jekyll with Bundler</option>
+        <option value="/tutorials/csv-to-table/">Tabulate CSV Data</option>
+        </optgroup>
     </select>
-</div>
-<div class="unit four-fifths">
+</div><div class="unit four-fifths">
       <article>
         <header class="tutorial-header">
           <div class="improve right hide-on-mobiles">
-            <a href="https://github.com/jekyll/jekyll/edit/master/docs/_tutorials/csv-to-table.md"><i
-               class="fa fa-pencil"></i> &nbsp;Improve this page</a>
-          </div>
+  <a data-proofer-ignore href="https://github.com/jekyll/jekyll/edit/master/docs/_tutorials/csv-to-table.md">
+    <i class="fa fa-pencil"></i> &nbsp;Improve this page
+  </a>
+</div>
+
           <h1 class="tutorial-title">Tabulate CSV Data</h1>
           
           
@@ -147,7 +146,7 @@ Jack,Hill,25,Australia
 
 <p>That data file will now be available in Jekyll like this:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="w"> </span><span class="p">}}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="w"> </span><span class="cp">}}</span>
 </code></pre></div></div>
 
 <h2 id="2-add-a-table">2. Add a table</h2>
@@ -165,8 +164,8 @@ Jack,Hill,25,Australia
 
 <p>Grab the first row and see what it looks like using the <code class="language-plaintext highlighter-rouge">inspect</code> filter.</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">inspect</span><span class="w"> </span><span class="p">}}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">inspect</span><span class="w"> </span><span class="cp">}}</span>
 </code></pre></div></div>
 
 <p>The result will be a <em>hash</em> (an object consisting of key-value pairs) which looks like this:</p>
@@ -185,17 +184,17 @@ Jack,Hill,25,Australia
 
 <p>A simple solution would be to hardcode the field names when looking up the row values by key.</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="nv">row</span><span class="p">[</span><span class="s2">"First name"</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">row</span><span class="p">[</span><span class="s2">"Last name"</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{{</span><span class="w"> </span><span class="nv">row</span><span class="p">[</span><span class="s2">"First name"</span><span class="p">]</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">row</span><span class="p">[</span><span class="s2">"Last name"</span><span class="p">]</span><span class="w"> </span><span class="cp">}}</span>
 </code></pre></div></div>
 
 <p>But we prefer a solution that will work for <em>any</em> CSV, without specifying the column names upfront.
 So we iterate over the <code class="language-plaintext highlighter-rouge">row</code> object using a <code class="language-plaintext highlighter-rouge">for</code> loop:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{{</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">inspect</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{{</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">inspect</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <p>This produces the following. Note the first item in each pair is the <em>key</em> and the second will be
@@ -214,15 +213,15 @@ the header name by getting the first element (at index <code class="language-pla
 element as we don’t need the value yet.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;table&gt;
-  <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.data.authors</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="p">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="w"> </span><span class="cp">%}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="cp">%}</span>
     &lt;tr&gt;
-      <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">%}</span>
-        &lt;th&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>&lt;/th&gt;
-      <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+      <span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="cp">%}</span>
+        &lt;th&gt;<span class="cp">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="cp">}}</span>&lt;/th&gt;
+      <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
     &lt;/tr&gt;
-    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 &lt;/table&gt;
 
 </code></pre></div></div>
@@ -244,19 +243,19 @@ title: Table test
 ---
 
 &lt;table&gt;
-  <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.data.authors</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="p">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">authors</span><span class="w"> </span><span class="cp">%}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="cp">%}</span>
     &lt;tr&gt;
-      <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">%}</span>
-        &lt;th&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>&lt;/th&gt;
-      <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+      <span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="cp">%}</span>
+        &lt;th&gt;<span class="cp">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="cp">}}</span>&lt;/th&gt;
+      <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
     &lt;/tr&gt;
-    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 
-    <span class="p">{%</span><span class="w"> </span><span class="nt">tablerow</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="p">%}</span>
-      <span class="p">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
-    <span class="p">{%</span><span class="w"> </span><span class="nt">endtablerow</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="nt">tablerow</span><span class="w"> </span><span class="nv">pair</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="cp">%}</span>
+      <span class="cp">{{</span><span class="w"> </span><span class="nv">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="cp">}}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="nt">endtablerow</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 &lt;/table&gt;
 </code></pre></div></div>
 
@@ -332,7 +331,7 @@ title: Table test
   <div class="grid">
     <div class="unit one-third center-on-mobiles">
       <p>Jekyll is lovingly maintained by the <a href="/team/">core team</a> of volunteers. </p>
-      <p>The contents of this website are <br />&copy;&nbsp;2023 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
+      <p>The contents of this website are <br />&copy;&nbsp;2024 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
     </div>
     <div class="unit two-thirds align-right center-on-mobiles">
       <p>
@@ -353,37 +352,37 @@ title: Table test
   </div>
 </footer>
 <script>
-  var anchorForId = function (id) {
-    var anchor = document.createElement("a");
-    anchor.className = "header-link";
-    anchor.href      = "#" + id;
-    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
-    anchor.title = "Permalink";
-    return anchor;
-  };
+/* Creates an anchor element with the given ID and link for the permalink*/
+const anchorForId = (id) => {
+  const anchor = document.createElement("a");
+  anchor.className = "header-link";
+  anchor.href = `#${id}`;
+  anchor.innerHTML = `<span class="sr-only">Permalink</span><i class="fa fa-link" aria-hidden="true"></i>`;
+  anchor.title = "Permalink";
+  return anchor;
+};
 
-  var linkifyAnchors = function (level, containingElement) {
-    var headers = containingElement.getElementsByTagName("h" + level);
-    for (var h = 0; h < headers.length; h++) {
-      var header = headers[h];
-
-      if (typeof header.id !== "undefined" && header.id !== "") {
-        header.appendChild(anchorForId(header.id));
-      }
+/* Finds all headers of the specified level within the given element, and adds a permalink to each header*/
+const linkifyAnchors = (level, containingElement) => {
+  const headers = Array.from(containingElement.getElementsByTagName(`h${level}`));
+  headers.forEach((header) => {
+    if (header.id) {
+      header.appendChild(anchorForId(header.id));
     }
-  };
+  });
+};
 
-  document.onreadystatechange = function () {
-    if (this.readyState === "complete") {
-      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
-      if (!contentBlock) {
-        return;
-      }
-      for (var level = 1; level <= 6; level++) {
-        linkifyAnchors(level, contentBlock);
-      }
+/* Executes the function when the document is ready */
+document.onreadystatechange = () => {
+  if (document.readyState === "complete") {
+    const contentBlock = document.getElementsByClassName("docs")[0]
+      ?? document.getElementsByClassName("news")[0];
+    if (!contentBlock) { return; }
+    for (let level = 1; level <= 6; level++) {
+      linkifyAnchors(level, contentBlock);
     }
-  };
+  }
+};
 </script>
 <!-- Google Analytics (https://www.google.com/analytics) -->
   <script>
@@ -404,5 +403,11 @@ enhancedSearchInput: true,
 debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>
+<script>
+  const navigateToUrl = (select) => {
+    const url = select.value;
+    url && (window.location.href = url);
+  };
+  </script>
 </body>
 </html>

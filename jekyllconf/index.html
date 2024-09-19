@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,7 +13,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>JekyllConf | Jekyll • Simple, blog-aware, static sites</title>
-<meta name="generator" content="Jekyll v4.3.2" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="JekyllConf" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Transform your plain text into static websites and blogs" />
@@ -57,11 +57,10 @@
   </ul>
 </nav>
     <div class="search hide-on-mobiles">
-      <input type="text" id="docsearch-input" placeholder="Search the docs…">
-</div>
+      <input type="text" id="docsearch-input" placeholder="Search the docs…" aria-label="Search"></div>
     <div class="meta hide-on-mobiles">
       <ul>
-        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.3.2">v4.3.2</a></li>
+        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.3.4">v4.3.4</a></li>
         <li><a href="https://github.com/jekyll/jekyll">GitHub</a></li>
       </ul>
     </div>
@@ -72,9 +71,8 @@
     <li><a href="/docs/">Docs</a></li>
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/news/">News</a></li>
-    <li><a href="https://github.com/jekyll/jekyll">GitHub</a></li>
-</ul>
-</nav>
+    <li><a href="https://github.com/jekyll/jekyll" target="_blank" rel="noopener">GitHub</a></li>
+</ul></nav>
 </header>
 <section class="standalone">
   <div class="grid">
@@ -84,9 +82,9 @@
 
 <h2 id="featured">Featured</h2>
 
-<p><strong>Jekyll As An API Endpoint</strong> - <a href="https://twitter.com/Pieter_Roozen"><em>Pieter Roozen</em></a></p>
+<p><strong>Building Living Style Guides with Jekyll</strong> - <a href="https://twitter.com/mjovel"><em>Michael Jovel</em></a></p>
 <div class="videoWrapper">
-    <iframe width="420" height="315" src="https://www.youtube.com/embed/moQP0SqEPsw" frameborder="0" allowfullscreen=""></iframe>
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/8zSHG6XU_xY" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
 <h2 id="2019">2019</h2>
@@ -219,7 +217,7 @@
   <div class="grid">
     <div class="unit one-third center-on-mobiles">
       <p>Jekyll is lovingly maintained by the <a href="/team/">core team</a> of volunteers. </p>
-      <p>The contents of this website are <br />&copy;&nbsp;2023 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
+      <p>The contents of this website are <br />&copy;&nbsp;2024 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
     </div>
     <div class="unit two-thirds align-right center-on-mobiles">
       <p>
@@ -240,37 +238,37 @@
   </div>
 </footer>
 <script>
-  var anchorForId = function (id) {
-    var anchor = document.createElement("a");
-    anchor.className = "header-link";
-    anchor.href      = "#" + id;
-    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
-    anchor.title = "Permalink";
-    return anchor;
-  };
+/* Creates an anchor element with the given ID and link for the permalink*/
+const anchorForId = (id) => {
+  const anchor = document.createElement("a");
+  anchor.className = "header-link";
+  anchor.href = `#${id}`;
+  anchor.innerHTML = `<span class="sr-only">Permalink</span><i class="fa fa-link" aria-hidden="true"></i>`;
+  anchor.title = "Permalink";
+  return anchor;
+};
 
-  var linkifyAnchors = function (level, containingElement) {
-    var headers = containingElement.getElementsByTagName("h" + level);
-    for (var h = 0; h < headers.length; h++) {
-      var header = headers[h];
-
-      if (typeof header.id !== "undefined" && header.id !== "") {
-        header.appendChild(anchorForId(header.id));
-      }
+/* Finds all headers of the specified level within the given element, and adds a permalink to each header*/
+const linkifyAnchors = (level, containingElement) => {
+  const headers = Array.from(containingElement.getElementsByTagName(`h${level}`));
+  headers.forEach((header) => {
+    if (header.id) {
+      header.appendChild(anchorForId(header.id));
     }
-  };
+  });
+};
 
-  document.onreadystatechange = function () {
-    if (this.readyState === "complete") {
-      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
-      if (!contentBlock) {
-        return;
-      }
-      for (var level = 1; level <= 6; level++) {
-        linkifyAnchors(level, contentBlock);
-      }
+/* Executes the function when the document is ready */
+document.onreadystatechange = () => {
+  if (document.readyState === "complete") {
+    const contentBlock = document.getElementsByClassName("docs")[0]
+      ?? document.getElementsByClassName("news")[0];
+    if (!contentBlock) { return; }
+    for (let level = 1; level <= 6; level++) {
+      linkifyAnchors(level, contentBlock);
     }
-  };
+  }
+};
 </script>
 <!-- Google Analytics (https://www.google.com/analytics) -->
   <script>
@@ -291,5 +289,11 @@ enhancedSearchInput: true,
 debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>
+<script>
+  const navigateToUrl = (select) => {
+    const url = select.value;
+    url && (window.location.href = url);
+  };
+  </script>
 </body>
 </html>
